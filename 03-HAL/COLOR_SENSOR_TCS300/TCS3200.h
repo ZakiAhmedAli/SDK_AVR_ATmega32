@@ -2,7 +2,7 @@
  * TCS3200.h
  *
  * Created: 12/20/2020 10:41:19 PM
- *  Author: Ahmed Basheer
+ *  Author: Zaki Ahmed 
  */ 
 #ifndef TCS3200_H_
 #define TCS3200_H_
