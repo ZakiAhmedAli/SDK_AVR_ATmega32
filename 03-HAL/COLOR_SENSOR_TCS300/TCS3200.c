@@ -1,9 +1,4 @@
-/*
- * TCS3200.c
- *
- * Created: 12/20/2020 10:41:31 PM
- *  Author: Ahmed Basheer
- */ 
+
 #include "TCS3200.h"
 #include "LCD.h"
 
