@@ -5,32 +5,15 @@
 #include"DIO_Interface.h"
 #include"I2C_Interface.h"
 
-void I2C_voidInit(Prescaler_t Prescale ,INTState_t State , u32 F_SCL ,u8 Address )
+void I2C_voidInit(Prescaler_t Prescale ,INTState_t State ,u8 Address )
 {
 	/* write address */
 	TWAR = (Address<<1);
 
-	switch (Prescale)
-	{
-		case I2C_PRESCALE1:
-								TWBR = (u8) (((float)F_CPU/(2.0*F_SCL)) -8);
-								break;
-		case I2C_PRESCALE4:
-								TWBR = (u8) (((float)F_CPU/(8.0*F_SCL)) -2);
-								break;
-		case I2C_PRESCALE16:
-								TWBR = (u8) (((float)F_CPU/(32*F_SCL)) -0.5);
-								break;
-		case I2C_PRESCALE64:
-								TWBR = (u8) (((float)F_CPU/(128*F_SCL)) -0.125);
-								break;
-		default:
-					break;
-	}
 	//check Prescaler
 	TWSR |= (Prescale & 0x03);
 	/* Get bit rate register value by formula */
-	//TWBR =(u8)BITRATE;
+	TWBR =(u8)BITRATE;
 	TWCR |= (1<<TWEN) | (State & 0x01) ;
 
 }

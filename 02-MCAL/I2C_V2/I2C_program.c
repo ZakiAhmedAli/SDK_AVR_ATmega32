@@ -5,6 +5,7 @@
 #include"DIO_Interface.h"
 #include"I2C_Interface.h"
 
+
 void I2C_voidInit(Prescaler_t Prescale ,INTState_t State , u32 F_SCL ,u8 Address )
 {
 	/* write address */
@@ -31,6 +32,7 @@ void I2C_voidInit(Prescaler_t Prescale ,INTState_t State , u32 F_SCL ,u8 Address
 	TWSR |= (Prescale & 0x03);
 	/* Get bit rate register value by formula */
 	//TWBR =(u8)BITRATE;
+	/*Enable TWI*/
 	TWCR |= (1<<TWEN) | (State & 0x01) ;
 
 }

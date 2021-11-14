@@ -7,7 +7,9 @@
 #define F_CPU	8000000UL
 
 
-//#define BITRATE ((((F_CPU / F_SCL) / Prescale) - 16 ) / 2)
+#define BITRATE ((((F_CPU / F_SCL) / Prescale) - 16 ) / 2)
+
+
 //#define BITRATE = ((F_CPU / SCLfreq) - 16) / (2 * TWI_PRESCALLER)
 
 
@@ -52,7 +54,7 @@ typedef enum {
 }INTState_t;
 
 
-void I2C_voidInit(Prescaler_t Prescale ,INTState_t State , u32 F_SCL ,u8 Address );
+void I2C_voidInit(Prescaler_t Prescale ,INTState_t State ,u8 Address );
 void I2C_voidStart(void);
 
 
